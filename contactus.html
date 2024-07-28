@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="success" href="success.html">
+<link rel="script" href="script.js">
+
+
+  <title>Feedback Form</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      color: #555;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    input[type="submit"] {
+      background-color: #4caf50;
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px; /* Increased text size for submit button */
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    /* Additional styles for animation */
+    form:hover {
+      transform: scale(1.05);
+    }
+
+    /* Additional styles for footer */
+    footer {
+      margin-top: 20px;
+      font-size: 18px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Brainware University : Student's Feedback </h2>
+
+  <form action="/feedback" method="post" name="post">
+    <h2>B.Sc. ANCS</h2>
+    <label for="fname">First Name:</label>
+    <input type="text" id="fname" name="fname" required placeholder="Enter Your First Name">
+
+    <label for="lname">Last Name:</label>
+    <input type="text" id="lname" name="lname" required placeholder="Enter Your Last Name">
+
+    <label for="email">Email ID:</label>
+    <input type="text" id="email" name="email" required placeholder="Enter Your Mail Id">
+
+    <label for="messaage">Message:</label>
+    <input type="text" id="message" name="message" required placeholder="Enter Your Message">
+
+    <input type="submit" value="submit" name="submit">
+  </form>
+
+
+  <!-- Simple JavaScript for animation -->
+  
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzbNKAqxagppdvhuV2a25lqZAXmLMstywj4Fux8ZmiLe5mxSQLsdD48KcgNE9EKsaN2/exec'
+
+const form = document.forms['post']
+
+
+form.addEventListener('submit', e => {
+e.preventDefault()
+fetch(scriptURL, { method: 'post', body: new FormData(form)})
+
+.then(() => { window.location.reload(); })
+.catch(error => console.error('Error!', error.message))
+})
+  </script>
+ 
+</body>
+</html>
+
+
